@@ -10,7 +10,7 @@ namespace Kentico.Kontent.AspNetCore.LocalizedRouting
 {
     public partial class TranslatedService : TranslatedRouteServiceBase, ITranslatedService
     {
-        private static IEnumerable<Localized> Translations = new List<Localized>();
+        public static IEnumerable<Localized> Translations = new List<Localized>();
         private IActionDescriptorCollectionProvider _actionDescriptorCollectionProvider;
 
         public TranslatedService(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
@@ -42,7 +42,7 @@ namespace Kentico.Kontent.AspNetCore.LocalizedRouting
             var normalizedValue = value.ToLowerInvariant();
 
             var translation = Translations.FirstOrDefault(s => s.OriginalName == normalizedValue);
-            var translated = translation?.LocalizerRoutes.FirstOrDefault(s => s.Culture == culture);
+            var translated = translation?.LocalizerRoutes.FirstOrDefault(s => s.Culture == normalizedLang);
             if (translated != null)
             {
                 return translated.Localized;
@@ -58,7 +58,7 @@ namespace Kentico.Kontent.AspNetCore.LocalizedRouting
                 .Where(s => (s as ControllerActionDescriptor).MethodInfo.GetCustomAttributes(typeof(LocalizedRouteAttribute), true).Any())
                 .Select(s => new Localized
                 {
-                    OriginalName = (s as ControllerActionDescriptor).ActionName,
+                    OriginalName = (s as ControllerActionDescriptor).ActionName.ToLower(),
                     LocalizerRoutes = (s as ControllerActionDescriptor).MethodInfo.GetCustomAttributes(typeof(LocalizedRouteAttribute), true).Select(c => new LocalizedRoute
                     {
                         Culture = (c as LocalizedRouteAttribute).Culture.ToLower(),
@@ -70,7 +70,7 @@ namespace Kentico.Kontent.AspNetCore.LocalizedRouting
               .Where(s => (s as ControllerActionDescriptor).ControllerTypeInfo.GetCustomAttributes(typeof(LocalizedRouteAttribute), true).Any())
               .Select(s => new Localized
               {
-                  OriginalName = (s as ControllerActionDescriptor).ControllerName,
+                  OriginalName = (s as ControllerActionDescriptor).ControllerName.ToLower(),
                   LocalizerRoutes = (s as ControllerActionDescriptor).ControllerTypeInfo.GetCustomAttributes(typeof(LocalizedRouteAttribute), true).Select(c => new LocalizedRoute
                   {
                       Culture = (c as LocalizedRouteAttribute).Culture.ToLower(),
