@@ -1,1 +1,1 @@
-# kontent-aspnetcore-localization
+# Kentico AspNetCore LocalizedRouting
