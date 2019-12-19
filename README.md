@@ -1,0 +1,1 @@
+# kontent-aspnetcore-localization
