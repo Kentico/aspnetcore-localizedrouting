@@ -23,7 +23,6 @@ namespace Kentico.Kontent.AspNetCore.LocalizedRouting
             }
         }
 
-
         public string Resolve(string culture, string value)
         {
             var normalizedLang = culture.ToLowerInvariant();
@@ -33,7 +32,6 @@ namespace Kentico.Kontent.AspNetCore.LocalizedRouting
             {
                 return translation.OriginalName;
             }
-
 
             return null;
         }
@@ -49,6 +47,7 @@ namespace Kentico.Kontent.AspNetCore.LocalizedRouting
             {
                 return translated.Localized;
             }
+
             return null;
         }
 

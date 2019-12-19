@@ -34,21 +34,21 @@ namespace Kentico.Kontent.AspNetCore.LocalizedRouting.TagHelpers
         private const string RouteValuesDictionaryName = "asp-all-route-data";
         private const string RouteValuesPrefix = "asp-route-";
 
-        private readonly IActionContextAccessor contextAccessor;
-        private readonly ITranslatedService translatedService;
+        private readonly IActionContextAccessor _contextAccessor;
+        private readonly ITranslatedService _translatedService;
 
         public TranslatedAnchorTagHelper(IHtmlGenerator generator, IActionContextAccessor contextAccessor, ITranslatedService translatedService) : base(generator)
         {
-            this.contextAccessor = contextAccessor;
-            this.translatedService = translatedService;
+            _contextAccessor = contextAccessor;
+            _translatedService = translatedService;
         }
 
         public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            var culture = contextAccessor.ActionContext.RouteData.Values["culture"].ToString();
+            var culture = _contextAccessor.ActionContext.RouteData.Values["culture"].ToString();
 
-            Controller = translatedService.ResolveLinks(culture, Controller);
-            Action = translatedService.ResolveLinks(culture, Action);
+            Controller = _translatedService.ResolveLinks(culture, Controller);
+            Action = _translatedService.ResolveLinks(culture, Action);
 
             return base.ProcessAsync(context, output);
         }
