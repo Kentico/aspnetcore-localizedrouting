@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kentico.Kontent.AspNetCore.LocalizedRouting
+namespace Kentico.AspNetCore.LocalizedRouting
 {
     public abstract class TranslatedRouteServiceBase
     {

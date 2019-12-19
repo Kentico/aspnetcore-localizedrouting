@@ -1,12 +1,11 @@
-﻿using Kentico.Kontent.AspNetCore.LocalizedRouting.Attributes;
+﻿using Kentico.AspNetCore.LocalizedRouting.Attributes;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Kentico.Kontent.AspNetCore.LocalizedRouting
+namespace Kentico.AspNetCore.LocalizedRouting
 {
     public partial class TranslatedService : TranslatedRouteServiceBase, ITranslatedService
     {

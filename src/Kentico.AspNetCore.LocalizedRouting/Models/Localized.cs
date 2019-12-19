@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Kentico.Kontent.AspNetCore.LocalizedRouting
+namespace Kentico.AspNetCore.LocalizedRouting
 {
     public class Localized
     {

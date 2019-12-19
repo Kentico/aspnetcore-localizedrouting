@@ -1,4 +1,4 @@
-﻿namespace Kentico.Kontent.AspNetCore.LocalizedRouting
+﻿namespace Kentico.AspNetCore.LocalizedRouting
 {
     public interface ITranslatedService
     {

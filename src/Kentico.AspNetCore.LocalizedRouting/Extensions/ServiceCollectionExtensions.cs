@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kentico.Kontent.AspNetCore.LocalizedRouting.Extensions
+namespace Kentico.AspNetCore.LocalizedRouting.Extensions
 {
     public static class ServiceCollectionExtensions
     {

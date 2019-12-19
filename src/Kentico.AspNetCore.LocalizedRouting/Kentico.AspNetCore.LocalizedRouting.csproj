@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Kentico.AspNetCore.LocalizedRouting</AssemblyName>
+    <RootNamespace>Kentico.AspNetCore.LocalizedRouting</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

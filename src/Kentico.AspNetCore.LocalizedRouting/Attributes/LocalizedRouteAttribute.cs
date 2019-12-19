@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kentico.Kontent.AspNetCore.LocalizedRouting.Attributes
+namespace Kentico.AspNetCore.LocalizedRouting.Attributes
 {
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class LocalizedRouteAttribute : Attribute

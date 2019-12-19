@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kentico.Kontent.AspNetCore.LocalizedRouting.TagHelpers
+namespace Kentico.AspNetCore.LocalizedRouting.TagHelpers
 {
     [HtmlTargetElement("a", Attributes = ActionAttributeName)]
     [HtmlTargetElement("a", Attributes = ControllerAttributeName)]
