@@ -7,18 +7,18 @@ using System.Linq;
 
 namespace Kentico.AspNetCore.LocalizedRouting
 {
-    public partial class TranslatedService : TranslatedRouteServiceBase, ITranslatedService
+    public partial class LocalizedRouteProvider : LocalizedRoutingProviderBase, ILocalizedRoutingProvider
     {
         public static IEnumerable<Localized> Translations = new List<Localized>();
         private IActionDescriptorCollectionProvider _actionDescriptorCollectionProvider;
 
-        public TranslatedService(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
+        public LocalizedRouteProvider(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
         {
             _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
 
             if (!Translations.Any())
             {
-                Translations = GetTranslationsData();
+                Translations = GetTranslations();
             }
         }
 
@@ -51,7 +51,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
         }
 
 
-        protected override IEnumerable<Localized> GetTranslationsData()
+        protected override IEnumerable<Localized> GetTranslations()
         {
             var actions = _actionDescriptorCollectionProvider.ActionDescriptors.Items
                 .Where(s => (s as ControllerActionDescriptor).MethodInfo.GetCustomAttributes(typeof(LocalizedRouteAttribute), true).Any())

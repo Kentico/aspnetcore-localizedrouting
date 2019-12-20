@@ -35,9 +35,9 @@ namespace Kentico.AspNetCore.LocalizedRouting.TagHelpers
         private const string RouteValuesPrefix = "asp-route-";
 
         private readonly IActionContextAccessor _contextAccessor;
-        private readonly ITranslatedService _translatedService;
+        private readonly ILocalizedRoutingProvider _translatedService;
 
-        public TranslatedAnchorTagHelper(IHtmlGenerator generator, IActionContextAccessor contextAccessor, ITranslatedService translatedService) : base(generator)
+        public TranslatedAnchorTagHelper(IHtmlGenerator generator, IActionContextAccessor contextAccessor, ILocalizedRoutingProvider translatedService) : base(generator)
         {
             _contextAccessor = contextAccessor;
             _translatedService = translatedService;

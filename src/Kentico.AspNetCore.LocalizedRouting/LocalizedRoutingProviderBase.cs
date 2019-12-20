@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Kentico.AspNetCore.LocalizedRouting
 {
-    public abstract class TranslatedRouteServiceBase
+    public abstract class LocalizedRoutingProviderBase
     {
-        protected abstract IEnumerable<Localized> GetTranslationsData();
+        protected abstract IEnumerable<Localized> GetTranslations();
     }
 }

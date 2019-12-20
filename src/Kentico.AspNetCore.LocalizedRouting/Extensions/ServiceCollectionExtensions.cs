@@ -12,7 +12,7 @@ namespace Kentico.AspNetCore.LocalizedRouting.Extensions
         public static void AddLocalizedRouting(this IServiceCollection services)
         {
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-            services.AddTransient<ITranslatedService, TranslatedService>();
+            services.AddTransient<ILocalizedRoutingProvider, LocalizedRouteProvider>();
 
         }
     }

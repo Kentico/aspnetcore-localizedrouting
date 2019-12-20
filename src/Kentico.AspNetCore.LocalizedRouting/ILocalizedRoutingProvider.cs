@@ -1,6 +1,6 @@
 ﻿namespace Kentico.AspNetCore.LocalizedRouting
 {
-    public interface ITranslatedService
+    public interface ILocalizedRoutingProvider
     {
         string Resolve(string culture, string value);
         string ResolveLinks(string culture, string value);
