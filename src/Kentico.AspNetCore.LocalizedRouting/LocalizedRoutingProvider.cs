@@ -16,14 +16,30 @@ namespace Kentico.AspNetCore.LocalizedRouting
         public LocalizedRouteProvider(IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
         {
             _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
-
-            if (!Translations.Any())
-            {
-                Translations = GetTranslationsAsync().Result;
-            }
         }
 
-        public string Resolve(string culture, string value)
+ 
+        public async Task<string> ProvideRouteAsync(string culture, string value, ProvideRouteType type)
+        {
+            if (!Translations.Any())
+            {
+                Translations = await GetTranslationsAsync();
+            }
+
+            if(type == ProvideRouteType.TranslatedToOriginal)
+            {
+                return TranslatedToOriginal(culture, value);
+            }
+            else if(type == ProvideRouteType.OriginalToTranslated)
+            {
+                return OriginalToTranslated(culture, value);
+            }
+
+            return null;
+        }
+
+
+        private string TranslatedToOriginal(string culture, string value)
         {
             var normalizedLang = culture.ToLowerInvariant();
             var normalizedValue = value.ToLowerInvariant();
@@ -36,7 +52,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
             return null;
         }
 
-        public string ResolveLinks(string culture, string value)
+        private string OriginalToTranslated(string culture, string value)
         {
             var normalizedLang = culture.ToLowerInvariant();
             var normalizedValue = value.ToLowerInvariant();

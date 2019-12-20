@@ -19,11 +19,11 @@ namespace Kentico.AspNetCore.LocalizedRouting
             if (!values.ContainsKey("culture") || !values.ContainsKey("controller") || !values.ContainsKey("action")) return values;
 
             var culture = (string)values["culture"];
-            var controller = _localizedRoutingProvider.Resolve(culture, (string)values["controller"]);
+            var controller = _localizedRoutingProvider.ProvideRouteAsync(culture, (string)values["controller"], LocalizedRouteProvider.ProvideRouteType.TranslatedToOriginal);
             if (controller == null) return values;
             values["controller"] = controller;
 
-            var action = _localizedRoutingProvider.Resolve(culture, (string)values["action"]);
+            var action = _localizedRoutingProvider.ProvideRouteAsync(culture, (string)values["action"], LocalizedRouteProvider.ProvideRouteType.TranslatedToOriginal);
             if (action == null) return values;
             values["action"] = action;
 

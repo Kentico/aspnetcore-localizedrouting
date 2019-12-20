@@ -1,8 +1,10 @@
-﻿namespace Kentico.AspNetCore.LocalizedRouting
+﻿using System.Threading.Tasks;
+using static Kentico.AspNetCore.LocalizedRouting.LocalizedRouteProvider;
+
+namespace Kentico.AspNetCore.LocalizedRouting
 {
     public interface ILocalizedRoutingProvider
     {
-        string Resolve(string culture, string value);
-        string ResolveLinks(string culture, string value);
+        Task<string> ProvideRouteAsync(string culture, string value, ProvideRouteType type);
     }
 }
