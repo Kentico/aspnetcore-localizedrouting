@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Kentico.AspNetCore.LocalizedRouting
 {
@@ -18,7 +19,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
 
             if (!Translations.Any())
             {
-                Translations = GetTranslations();
+                Translations = GetTranslationsAsync().Result;
             }
         }
 
@@ -51,7 +52,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
         }
 
 
-        protected override IEnumerable<Localized> GetTranslations()
+        protected override async Task<IEnumerable<Localized>> GetTranslationsAsync()
         {
             var actions = _actionDescriptorCollectionProvider.ActionDescriptors.Items
                 .Where(s => (s as ControllerActionDescriptor).MethodInfo.GetCustomAttributes(typeof(LocalizedRouteAttribute), true).Any())

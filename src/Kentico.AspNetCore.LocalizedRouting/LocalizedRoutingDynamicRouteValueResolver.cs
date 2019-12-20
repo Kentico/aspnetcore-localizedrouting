@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Kentico.AspNetCore.LocalizedRouting
 {
@@ -13,7 +14,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
         {
             _localizedRoutingProvider = localizedRoutingProvider;
         }
-        public RouteValueDictionary Resolve(RouteValueDictionary values)
+        public async Task<RouteValueDictionary> ResolveAsync(RouteValueDictionary values)
         {
             if (!values.ContainsKey("culture") || !values.ContainsKey("controller") || !values.ContainsKey("action")) return values;
 

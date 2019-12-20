@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Routing;
+using System.Threading.Tasks;
 
 namespace Kentico.AspNetCore.LocalizedRouting
 {
     public interface ILocalizedRoutingDynamicRouteValueResolver
     {
-        RouteValueDictionary Resolve(RouteValueDictionary values);
+        Task<RouteValueDictionary> ResolveAsync(RouteValueDictionary values);
     }
 }
