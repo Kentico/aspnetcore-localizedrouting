@@ -20,7 +20,7 @@ namespace Kentico.AspNetCore.LocalizedRouting.TagHelpers
     [HtmlTargetElement("a", Attributes = RouteAttributeName)]
     [HtmlTargetElement("a", Attributes = RouteValuesDictionaryName)]
     [HtmlTargetElement("a", Attributes = RouteValuesPrefix + "*")]
-    public class TranslatedAnchorTagHelper : AnchorTagHelper
+    public class LocalizedRoutingAnchorTagHelper : AnchorTagHelper
     {
         private const string ActionAttributeName = "asp-action";
         private const string ControllerAttributeName = "asp-controller";
@@ -37,7 +37,7 @@ namespace Kentico.AspNetCore.LocalizedRouting.TagHelpers
         private readonly IActionContextAccessor _contextAccessor;
         private readonly ILocalizedRoutingProvider _translatedService;
 
-        public TranslatedAnchorTagHelper(IHtmlGenerator generator, IActionContextAccessor contextAccessor, ILocalizedRoutingProvider translatedService) : base(generator)
+        public LocalizedRoutingAnchorTagHelper(IHtmlGenerator generator, IActionContextAccessor contextAccessor, ILocalizedRoutingProvider translatedService) : base(generator)
         {
             _contextAccessor = contextAccessor;
             _translatedService = translatedService;
