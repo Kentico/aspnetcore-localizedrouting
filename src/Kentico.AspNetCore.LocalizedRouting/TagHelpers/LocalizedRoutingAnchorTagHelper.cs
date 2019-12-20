@@ -47,8 +47,8 @@ namespace Kentico.AspNetCore.LocalizedRouting.TagHelpers
         {
             var culture = _contextAccessor.ActionContext.RouteData.Values["culture"].ToString();
 
-            Controller = await _translatedService.ProvideRouteAsync(culture, Controller, LocalizedRouteProvider.ProvideRouteType.OriginalToTranslated);
-            Action = await _translatedService.ProvideRouteAsync(culture, Action, LocalizedRouteProvider.ProvideRouteType.OriginalToTranslated);
+            Controller = await _translatedService.ProvideRouteAsync(culture, Controller, ProvideRouteType.OriginalToTranslated);
+            Action = await _translatedService.ProvideRouteAsync(culture, Action, ProvideRouteType.OriginalToTranslated);
 
             await base.ProcessAsync(context, output);
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Kentico.AspNetCore.LocalizedRouting
 {
-    public partial class LocalizedRouteProvider : LocalizedRoutingProviderBase, ILocalizedRoutingProvider
+    public class LocalizedRouteProvider : LocalizedRoutingProviderBase, ILocalizedRoutingProvider
     {
         public static IEnumerable<Localized> Translations = new List<Localized>();
         private IActionDescriptorCollectionProvider _actionDescriptorCollectionProvider;
