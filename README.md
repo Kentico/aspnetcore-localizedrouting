@@ -45,7 +45,7 @@ Register this service to DI.
 services.AddSingleton<CustomLocalizedRoutingTranslationTransformer>();
 ```
 
-Use `CustomLocalizedRoutingTranslationTransformer` in `MapDynamicControllerRoute`. For correct working, you need to use routing template **{culture}/{controller}/{action}**
+Use `CustomLocalizedRoutingTranslationTransformer` in `MapDynamicControllerRoute`. For correct working, your routing template must contain these parameters - **{culture}/{controller}/{action}**.
 ```csharp
 app.UseEndpoints(endpoints =>
 {
