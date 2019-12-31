@@ -22,8 +22,10 @@ You should install [Kentico.AspNetCore.LocalizedRouting]() with NuGet:
 
     Install-Package Kentico.AspNetCore.LocalizedRouting
     
-You will need to configure services via IServiceCollection extension method `services.AddLocalizedRouting()`.
-
+You will need to configure services via IServiceCollection extension method.
+```csharp
+services.AddLocalizedRouting()
+```
 You need to create a custom `DynamicRouteValueTransformer` and use `ILocalizedRoutingDynamicRouteValueResolver` service in `TransforAsync` method to resolve the translated route.
 ```csharp
 public class CustomLocalizedRoutingTranslationTransformer : DynamicRouteValueTransformer
