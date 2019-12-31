@@ -74,6 +74,6 @@ If you need to translated links in application, you need also register Localized
 ```csharp
 @addTagHelper *, Kentico.AspNetCore.LocalizedRouting
 @removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
-```csharp
+```
 
 
