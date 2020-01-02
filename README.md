@@ -31,8 +31,8 @@ You need to create a custom `DynamicRouteValueTransformer` and use `ILocalizedRo
 ```csharp
 public class CustomLocalizedRoutingTranslationTransformer : DynamicRouteValueTransformer
 {
-    ILocalizedRoutingDynamicRouteValueResolver localizedRoutingDynamicRouteValueResolver;
-    public RoutingTranslationTransformer(ILocalizedRoutingDynamicRouteValueResolver localizedRoutingDynamicRouteValueResolver)
+    private ILocalizedRoutingDynamicRouteValueResolver _localizedRoutingDynamicRouteValueResolver;
+    public CustomLocalizedRoutingTranslationTransformer(ILocalizedRoutingDynamicRouteValueResolver localizedRoutingDynamicRouteValueResolver)
     {
         _localizedRoutingDynamicRouteValueResolver = localizedRoutingDynamicRouteValueResolver
     }
@@ -73,7 +73,7 @@ public class ArticlesController : Controller
 }
 ```
 
-If you need to translated links in application, you need also register `LocalizedRoutingAnchorTagHelper` instead of the default implementation.
+If you need translated links in application, you have to also register `LocalizedRoutingAnchorTagHelper` instead of the default implementation.
 ```csharp
 @addTagHelper *, Kentico.AspNetCore.LocalizedRouting
 @removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
