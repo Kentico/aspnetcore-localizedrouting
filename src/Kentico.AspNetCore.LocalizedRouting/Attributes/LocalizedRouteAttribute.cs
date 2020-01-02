@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kentico.AspNetCore.LocalizedRouting.Attributes
 {
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = true)]
     public class LocalizedRouteAttribute : Attribute
     {
         public LocalizedRouteAttribute(string culture, string localizedRoute)

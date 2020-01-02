@@ -37,7 +37,7 @@ public class CustomLocalizedRoutingTranslationTransformer : DynamicRouteValueTra
     }
     public override async ValueTask<RouteValueDictionary> TransformAsync(HttpContext httpContext, RouteValueDictionary values)
     {
-        return _localizedRoutingDynamicRouteValueResolver.ResolveAsync(values);
+        return await _localizedRoutingDynamicRouteValueResolver.ResolveAsync(values);
     }
 }
 
@@ -78,4 +78,6 @@ If you need to translated links in application, you need also register `Localize
 @removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
 ```
 
+## Feedback & Contributing
+Check out the [contributing](https://github.com/tomasjurasek/kentico-aspnetcore-routing-localization/blob/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions, and begin contributing.
 
