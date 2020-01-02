@@ -1,5 +1,6 @@
 # Kentico AspNetCore LocalizedRouting
-
+![Build status](https://ci.appveyor.com/api/projects/status/mlyakjjap02k6oie?svg=true
+)
 ## Introduction
 The LocalizedRouting package is the extension for [ASP.NET Core Localization](https://docs.microsoft.com/en-US/aspnet/core/fundamentals/localization?view=aspnetcore-3.1#localization-middleware) which provides you localized routing.
 
