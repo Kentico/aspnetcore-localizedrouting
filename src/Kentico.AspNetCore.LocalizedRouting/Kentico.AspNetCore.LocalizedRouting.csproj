@@ -9,8 +9,8 @@
     <Description>Kentico AspNetCore LocalizedRouting</Description>
     <Copyright>© 2020 Kentico Software. All rights reserved.</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/tomasjurasek/kentico-aspnetcore-localizedrouting</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/tomasjurasek/kentico-aspnetcore-localizedrouting.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Kentico/aspnetcore-localizedrouting</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Kentico/aspnetcore-localizedrouting.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>kentico;aspnetcore;aspnetmvc;</PackageTags>
   </PropertyGroup>
