@@ -4,6 +4,15 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Kentico.AspNetCore.LocalizedRouting</AssemblyName>
     <RootNamespace>Kentico.AspNetCore.LocalizedRouting</RootNamespace>
+    <Authors>Kentico Software</Authors>
+    <Product>Kentico Software</Product>
+    <Description>Kentico AspNetCore LocalizedRouting</Description>
+    <Copyright>© 2020 Kentico Software. All rights reserved.</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/tomasjurasek/kentico-aspnetcore-localizedrouting</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tomasjurasek/kentico-aspnetcore-localizedrouting.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>kentico;aspnetcore;aspnetmvc;</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
