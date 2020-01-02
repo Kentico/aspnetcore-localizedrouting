@@ -1,6 +1,6 @@
 # Kentico AspNetCore LocalizedRouting
-![Build status](https://ci.appveyor.com/api/projects/status/mlyakjjap02k6oie?svg=true
-)
+![Build status](https://ci.appveyor.com/api/projects/status/mlyakjjap02k6oie?svg=true)
+![GitHub All Releases](https://img.shields.io/github/downloads/Kentico/aspnetcore-localizedrouting/total)
 ## Introduction
 The LocalizedRouting package is the extension for [ASP.NET Core Localization](https://docs.microsoft.com/en-US/aspnet/core/fundamentals/localization?view=aspnetcore-3.1#localization-middleware) which provides you localized routing.
 
@@ -19,7 +19,7 @@ The extension provides you several services:
 This is an extension for [ASP.NET Core Localization](https://docs.microsoft.com/en-US/aspnet/core/fundamentals/localization?view=aspnetcore-3.1#localization-middleware). You need to use [RouteDataRequestCultureProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.localization.routing.routedatarequestcultureprovider?view=aspnetcore-3.1) for your culture provider.
 
 ### Setup
-You should install [Kentico.AspNetCore.LocalizedRouting]() with NuGet:  
+You should install [Kentico.AspNetCore.LocalizedRouting](https://www.nuget.org/packages/Kentico.AspNetCore.LocalizedRouting/) with NuGet:  
 
     Install-Package Kentico.AspNetCore.LocalizedRouting
     
