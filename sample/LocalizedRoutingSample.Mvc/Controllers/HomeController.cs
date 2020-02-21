@@ -10,8 +10,8 @@ using Kentico.AspNetCore.LocalizedRouting.Attributes;
 
 namespace LocalizedRoutingSample.Mvc.Controllers
 {
-    [LocalizedRoute("en-US", "home")]
-    [LocalizedRoute("cs-CZ", "domu")]
+    //[LocalizedRoute("en-US", "home")]
+    //[LocalizedRoute("cs-CZ", "domu")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -21,15 +21,15 @@ namespace LocalizedRoutingSample.Mvc.Controllers
             _logger = logger;
         }
 
-        [LocalizedRoute("en-US", "index")]
-        [LocalizedRoute("cs-CZ", "uvod")]
+        //[LocalizedRoute("en-US", "index")]
+        //[LocalizedRoute("cs-CZ", "uvod")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [LocalizedRoute("en-US", "privacy")]
-        [LocalizedRoute("cs-CZ", "soukromi")]
+        //[LocalizedRoute("en-US", "privacy")]
+        //[LocalizedRoute("cs-CZ", "soukromi")]
         public IActionResult Privacy()
         {
             return View();

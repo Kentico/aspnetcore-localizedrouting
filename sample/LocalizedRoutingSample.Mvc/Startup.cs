@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Kentico.AspNetCore.LocalizedRouting;
 using Kentico.AspNetCore.LocalizedRouting.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace LocalizedRoutingSample.Mvc
@@ -27,12 +29,15 @@ namespace LocalizedRoutingSample.Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalizedRouting();
-            services.AddLocalization();
             services.AddControllersWithViews();
 
+            //Use custom provider if you need to load your localized routes from DB, File, instead of LocalizedRoute attribute  ...
+            services.AddSingleton<ILocalizedRoutingProvider, CustomLocalizedRouteProvider>();
 
             services.AddSingleton<CustomLocalizedRoutingTranslationTransformer>();
-           
+            services.AddLocalization();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
