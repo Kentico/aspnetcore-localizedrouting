@@ -43,7 +43,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
         {
             var normalizedLang = culture.ToLowerInvariant();
             var normalizedValue = value.ToLowerInvariant();
-            var translation = Translations.FirstOrDefault(s => s.LocalizerRoutes.Any(w => w.Localized == value && w.Culture == normalizedLang));
+            var translation = Translations.FirstOrDefault(s => s.LocalizerRoutes.Any(w => w.Localized == normalizedValue && w.Culture == normalizedLang));
             if (translation != null)
             {
                 return translation.OriginalName;
