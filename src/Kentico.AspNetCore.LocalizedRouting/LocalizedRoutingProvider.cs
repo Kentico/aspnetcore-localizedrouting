@@ -18,21 +18,21 @@ namespace Kentico.AspNetCore.LocalizedRouting
             _actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
         }
 
- 
-        public async Task<string> ProvideRouteAsync(string culture, string value, ProvideRouteType type)
+
+        public async Task<string> ProvideRouteAsync(string culture, string value, string controllerName, ProvideRouteType type)
         {
             if (!Translations.Any())
             {
                 Translations = await GetTranslationsAsync();
             }
 
-            if(type == ProvideRouteType.TranslatedToOriginal)
+            if (type == ProvideRouteType.TranslatedToOriginal)
             {
                 return TranslatedToOriginal(culture, value);
             }
-            else if(type == ProvideRouteType.OriginalToTranslated)
+            else if (type == ProvideRouteType.OriginalToTranslated)
             {
-                return OriginalToTranslated(culture, value);
+                return OriginalToTranslated(culture, value, controllerName);
             }
 
             return null;
@@ -43,6 +43,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
         {
             var normalizedLang = culture.ToLowerInvariant();
             var normalizedValue = value.ToLowerInvariant();
+
             var translation = Translations.FirstOrDefault(s => s.LocalizerRoutes.Any(w => w.Localized == normalizedValue && w.Culture == normalizedLang));
             if (translation != null)
             {
@@ -52,12 +53,13 @@ namespace Kentico.AspNetCore.LocalizedRouting
             return null;
         }
 
-        private string OriginalToTranslated(string culture, string value)
+        private string OriginalToTranslated(string culture, string value, string controllerName)
         {
             var normalizedLang = culture.ToLowerInvariant();
             var normalizedValue = value.ToLowerInvariant();
+            var normalizedControllerName = controllerName.ToLowerInvariant();
 
-            var translation = Translations.FirstOrDefault(s => s.OriginalName == normalizedValue);
+            var translation = Translations.FirstOrDefault(s => s.OriginalName == normalizedValue && s.OriginalControllerName == normalizedControllerName);
             var translated = translation?.LocalizerRoutes.FirstOrDefault(s => s.Culture == normalizedLang);
             if (translated != null)
             {
@@ -75,6 +77,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
                 .Select(s => new Localized
                 {
                     OriginalName = (s as ControllerActionDescriptor).ActionName.ToLower(),
+                    OriginalControllerName = (s as ControllerActionDescriptor).ControllerName.ToLower(),
                     LocalizerRoutes = (s as ControllerActionDescriptor).MethodInfo.GetCustomAttributes(typeof(LocalizedRouteAttribute), true).Select(c => new LocalizedRoute
                     {
                         Culture = (c as LocalizedRouteAttribute).Culture.ToLower(),
@@ -87,6 +90,7 @@ namespace Kentico.AspNetCore.LocalizedRouting
               .Select(s => new Localized
               {
                   OriginalName = (s as ControllerActionDescriptor).ControllerName.ToLower(),
+                  OriginalControllerName = (s as ControllerActionDescriptor).ControllerName.ToLower(),
                   LocalizerRoutes = (s as ControllerActionDescriptor).ControllerTypeInfo.GetCustomAttributes(typeof(LocalizedRouteAttribute), true).Select(c => new LocalizedRoute
                   {
                       Culture = (c as LocalizedRouteAttribute).Culture.ToLower(),

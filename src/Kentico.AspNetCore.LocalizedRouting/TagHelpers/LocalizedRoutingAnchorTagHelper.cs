@@ -46,9 +46,11 @@ namespace Kentico.AspNetCore.LocalizedRouting.TagHelpers
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             var culture = _contextAccessor.ActionContext.RouteData.Values["culture"].ToString();
+            var controller = Controller;
+            var action = Action;
 
-            Controller = await _translatedService.ProvideRouteAsync(culture, Controller, ProvideRouteType.OriginalToTranslated);
-            Action = await _translatedService.ProvideRouteAsync(culture, Action, ProvideRouteType.OriginalToTranslated);
+            Controller = await _translatedService.ProvideRouteAsync(culture, controller, controller, ProvideRouteType.OriginalToTranslated);
+            Action = await _translatedService.ProvideRouteAsync(culture, action, controller, ProvideRouteType.OriginalToTranslated);
 
             await base.ProcessAsync(context, output);
         }
