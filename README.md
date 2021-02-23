@@ -1,3 +1,8 @@
+[![No Maintenance Intended](https://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+## :warning: Deprecation Notice
+> This repository is no longer being maintained. Please use the [AspNetCore.Mvc.Routing.Localization](https://github.com/tomasjurasek/AspNetCore.Mvc.Routing.Localization/) package instead.
+<br />
+
 # Kentico AspNetCore LocalizedRouting
 ![Build status](https://ci.appveyor.com/api/projects/status/mlyakjjap02k6oie?svg=true)
 ## Introduction
